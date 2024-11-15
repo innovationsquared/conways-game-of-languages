@@ -1,1 +1,1 @@
-# conways game of languages :)
+# conway's game of languages :)
