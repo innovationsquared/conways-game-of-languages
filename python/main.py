@@ -29,7 +29,7 @@ class Main:
          arr = city.evolve(arr)
          city.drawScreen(screen, arr)
          py.display.flip()
-         clock.tick(30)
+         clock.tick(20)
       py.quit() 
 
 main = Main()
