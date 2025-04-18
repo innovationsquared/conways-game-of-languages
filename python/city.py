@@ -1,15 +1,14 @@
 from const import *
 import pygame
+import random
 #initialize 100x100 array for 10x10 cubes
 #0 for dead, 1 for alive (All dead at start)
 class City:
     def initializeCity(self):
         self.city = [[0 for i in range(NUM_CUBES)] for j in range(NUM_CUBES)]
-        self.city[0][0] = 1
-        self.city[0][1] = 1
-        self.city[1][0] = 1
-        self.city[1][1] = 1
-        self.city[0][1] = 1
+        for i in range(500):
+             self.city[random.randrange(0,100)][random.randrange(0,100)] = 1
+             
         return self.city
 
     # for row in city: 
@@ -20,7 +19,7 @@ class City:
             for row in range(NUM_CUBES):
                     for col in range(NUM_CUBES):
                         if arr[row][col] == 1:
-                              pygame.draw.rect(surface, 'yellow', (SQ_SIZE * row, SQ_SIZE * col, SQ_SIZE, SQ_SIZE))
+                              pygame.draw.rect(surface, (255,255,0), (SQ_SIZE * row, SQ_SIZE * col, SQ_SIZE, SQ_SIZE))
 
     def checkNeighbors(self, arr, row, col):
         counter = 0
@@ -50,7 +49,7 @@ class City:
                             arr[row][col] = 1
                         #If a cell has more than three neighbors, it dies.
                         case num if num > 3 and arr[row][col] == 1:
-                            arr[row][col] == 0
+                            arr[row][col] = 0
                         case _:
                             continue            
         return arr
