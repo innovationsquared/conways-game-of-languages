@@ -3,3 +3,5 @@ class Cell:
         self.row = row
         self.col = col
         self.state = state
+
+    
